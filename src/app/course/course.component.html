@@ -1,0 +1,38 @@
+<table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Description Label -->
+    <ng-container matColumnDef="label">
+        <th colspan="2" mat-header-cell *matHeaderCellDef> Label </th>
+        <td colspan="2" mat-cell *matCellDef="let element"> <strong>Total {{element.label}}</strong> </td>
+    </ng-container>
+
+    <!-- Description Value -->
+    <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Value </th>
+        <td mat-cell *matCellDef="let element"><strong>{{element.value}}</strong></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr mat-row *matRowDef="let row; columns: displayedGroupFooter; when: isGroup"> </tr>
+
+</table>
